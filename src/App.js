@@ -12,7 +12,7 @@ export default function App() {
   ])
 
   const removePosition = id => {
-    setPositions(positions.filter(e => e.id != id))
+    setPositions(positions.filter(e => e.id !== id))
   }
 
   const addPosition = () => {
