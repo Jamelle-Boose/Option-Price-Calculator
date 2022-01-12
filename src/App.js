@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import Button from "./components/Button"
+import Position from "./components/Position"
 
-function App() {
+import { nanoid } from "nanoid"
+
+export default function App() {
+  const [positions, setPositions] = useState([
+    {
+      id: nanoid(15),
+    },
+  ])
+
+  const removePosition = id => {
+    setPositions(positions.filter(e => e.id != id))
+  }
+
+  const addPosition = () => {
+    const newPositions = [...positions, { id: nanoid(15) }]
+    setPositions(newPositions)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {positions.map((position, index) => (
+        <Position
+          key={position.id}
+          id={position.id}
+          removePosition={removePosition}
+        />
+      ))}
+      <Button addPosition={addPosition} />
+    </>
+  )
 }
-
-export default App;
