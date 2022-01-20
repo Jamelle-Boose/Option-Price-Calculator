@@ -8,7 +8,7 @@ const Position = ({ removePosition, id }) => {
 
   const minus15 = value => roundToTwo(value - value * 0.15)
 
-  const plus10 = value => roundToTwo(value * 0.1 + value)
+  const plus15 = value => roundToTwo(value * 0.15 + value)
 
   const plus30 = value => roundToTwo(value * 0.3 + value)
 
@@ -100,12 +100,10 @@ const Position = ({ removePosition, id }) => {
                   <input
                     className="input"
                     type="text"
-                    value={!isNaN(value) ? plus10(value) : ""}
+                    value={!isNaN(value) ? plus15(value) : ""}
                     readOnly={true}
                   />
                 </div>
-
-                <p className="help">OK to grab alert under 10%</p>
               </div>
             </div>
             <div className="column">
