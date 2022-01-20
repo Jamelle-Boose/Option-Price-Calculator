@@ -95,7 +95,7 @@ const Position = ({ removePosition, id }) => {
             </div>
             <div className="column">
               <div className="field">
-                <label className="label has-text-primary-dark">+10%</label>
+                <label className="label has-text-primary-dark">+15%</label>
                 <div className="control">
                   <input
                     className="input"
